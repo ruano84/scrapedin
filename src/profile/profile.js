@@ -53,6 +53,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const contact = hasToGetContactInfo ? await contactInfo(page) : []
 
   await page.close()
+  await page.browser().close();
   logger.info(`finished scraping url: ${url}`)
 
   const rawProfile = {
